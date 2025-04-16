@@ -4,30 +4,34 @@
 
 void print_integer(int);
 
-int main(void)
-{
-  int prime[2] =
-  {2, 3};
-
-  int index = 0;
-  int invert;
-
-  while(index < 20)
-  {
-    invert = prime[index] * prime[index];
-
-    print_integer(prime[index]);
-    putchar(' ');
-    print_integer(invert);
-    putchar('\n');
-
-    index = index + 1;
-  }
-  return 0;
+void swap(int *x, int *y) {
+  int temp = *x;
+  *x = *y;
+  *y = temp;
 }
 
-void print_integer(int n)
-{
+int main(void) {
+
+  int a = 1;
+  int b = 2;
+
+
+  puts("Before:");
+  print_integer(a);
+  putchar(' ');
+  print_integer(b);
+  putchar('\n');
+
+  swap(&a, &b);
+  puts("After:");
+  print_integer(a);
+  putchar(' ');
+  print_integer(b);
+  putchar('\n');
+
+}
+
+void print_integer(int n) {
   if(n > 9)
   {
     print_integer(n / 10);
@@ -35,4 +39,3 @@ void print_integer(int n)
   }
   putchar(n + '0');
 }
-
